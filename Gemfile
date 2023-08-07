@@ -12,9 +12,17 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 gem "pg"
+gem "devise"
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+gem 'bootstrap', '~> 5.0'
+gem "bootstrap_form", "~> 5.0"
+# gem 'devise-i18n'
+# gem 'devise_invitable'
+gem 'devise-bootstrap-form'
+gem 'iex-ruby-client'
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
