@@ -5,6 +5,7 @@ ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.6"
+gem 'byebug', '~> 11.1', '>= 11.1.3'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -23,6 +24,7 @@ gem "bootstrap_form", "~> 5.0"
 # gem 'devise_invitable'
 gem 'devise-bootstrap-form'
 gem 'iex-ruby-client'
+gem "font-awesome-rails"
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
