@@ -16,4 +16,8 @@ class Stock < ApplicationRecord
             return nil
         end
     end
+
+    def self.find_stock_db(ticker)
+        where(ticker: ticker).first
+    end
 end
