@@ -7,6 +7,14 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="row g-3">
+                <div class="col">
+                  <%= f.text_field :first_name, class: "form-control"  %>
+                </div>
+                <div class="col">
+                  <%= f.text_field :last_name, class: "form-control"  %>
+                </div>
+          </div>
           <%= f.password_field :password,
                 autocomplete: "new-password",
                 help: "(#{@minimum_password_length} characters minimum)" %>
