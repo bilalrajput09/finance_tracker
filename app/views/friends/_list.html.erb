@@ -1,3 +1,26 @@
+<% if @friends_searched %>
+    <br>
+    <%@friends_searched.each do |friend| %>
+        <div class="card card-header display-inline-block">
+            <strong>First name: </strong> <%= friend.first_name%>
+            <strong>Last name: </strong> <%= friend.last_name%>
+            <strong>Email: </strong> <%= friend.email%>
+            <%= link_to "View Profile", user_path(friend), class: "btn btn-success" %>
+            <% if current_user.not_friend_with?(friend) %>
+              <%= link_to "Add to friendlist", friendships_path(friend_id: friend.id), data: { turbo_method: :post }, class: "btn btn-success" %>
+            <% else %>
+                <span class = "badge bg-secondary">
+                    You are friends already
+                </span>
+            <% end %>
+            
+        </div>
+        
+    <% end %>
+    
+    
+<% end %>
+
 <div class="row mt-3">
     <div class="col-9">
         <table class="table table-bordered table-hover">
@@ -15,7 +38,9 @@
                     <td><%= friend.email %></td>
                     <td><%= friend.first_name %></td>
                     <td><%= friend.last_name %></td>
-                    <td><%= button_to "Stop Following", "#", method: :delete, class: "btn btn-sm btn-warning" %></td>
+                    <td><%= link_to "Stop Following",  friendship_path(friend), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %>
+                    <%= link_to "View Profile", user_path(friend), class: "btn btn-success" %>
+                    </td>
                     </tr>
                 </tbody>
             <% end %>

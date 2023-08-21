@@ -1,18 +1,24 @@
 class UsersController < ApplicationController
   def my_portfolio
-    @tracked_stocks = current_user.stocks
+    @user = current_user
+    @tracked_stocks = @user.stocks
   end
 
   def my_friends
     @friends = current_user.friends
   end
 
+  def show 
+    @user = User.find(params[:id])
+    @tracked_stocks = @user.stocks
+  end
+
   def search
-    @friends_list = current_user.friends
-    @name = params[:friend].capitalize
-    @friends = @friends_list.select { |friend| @name == friend.first_name }
-        if @name.present?
-            if @name
+    @friends = current_user.friends
+    @friends_searched = User.search(params[:friend])
+    @friends_searched = @friends_searched.reject { |friend| current_user.id == friend.id }
+        if @friends_searched.present?
+            if @friends_searched
                 render 'users/my_friends'
             else
                 flash[:alert] = "Please enter a valid name."

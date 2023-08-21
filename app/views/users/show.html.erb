@@ -1,0 +1,18 @@
+<h1>User Details</h1>
+<br>
+<div class="card card-header display-inline-block">
+    <strong>First name: </strong> <%= @user.first_name%>
+    <strong>Last name: </strong> <%= @user.last_name%>
+    <strong>Email: </strong> <%= @user.email%>
+    <% if current_user.not_friend_with?(@user) %>
+        <%= link_to "Add to friendlist", friendships_path(friend_id: @user.id), data: { turbo_method: :post }, class: "btn btn-success" %>
+    <% else %>
+        <span class = "badge bg-secondary">
+            You are friends already
+        </span>
+    <% end %>  
+</div>
+
+<% if !@tracked_stocks.empty? %>
+    <%= render "stocks/list"%>
+<% end %>
